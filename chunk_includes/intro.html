@@ -1,0 +1,65 @@
+<h3>Instructions</h3>
+
+<p>In this experiment, you will be presented with sentence-diagram pairs.</p>
+
+<p>Your task is to decide whether the presented sentence is true based on the diagram provided.</p>
+
+<p>You may either click on your desired response or use the keyboard to enter "y" or "n".
+<ul>
+<li>y = yes</li>
+<li>n = no</li>
+</ul>
+</p>
+
+<p>Respond as quickly as possible, while maintaining accuracy.</p>
+
+
+<p>After you enter your decision, you will be asked to rate your confidence on that decision.</p>
+
+<!--<p id=uniqueID>If your code does not appear here, email egz@jhu.edu<p>-->
+
+<script type="text/javascript">
+function uniqueMD5() {
+    // Time zone.
+    var s = "" + new Date().getTimezoneOffset() + ':';
+
+    // Plugins.
+    var plugins = [
+        "Java",
+        "QuickTime",
+        "DevalVR",
+        "Shockwave",
+        "Flash",
+        "Windows Media Player",
+        "Silverlight",
+        "VLC Player"
+    ];
+    for (var i = 0; i < plugins.length; ++i) {
+        var v = PluginDetect.getVersion(plugins[i]);
+        if (v) s += plugins[i] + ':' + v;
+    }
+
+    // Whether or not cookies are turned on.
+    createCookie("TEST", "TEST", 0.01); // Keep it for 0.01 days.
+    if (readCookie("TEST") == "TEST")
+        s += "C";
+
+    // Screen dimensions and color depth.
+    var width = screen.width ? screen.width : 1;
+    var height = screen.height ? screen.height : 1;
+    var colorDepth = screen.colorDepth ? screen.colorDepth : 1;
+    s += width + ':' + height + ':' + colorDepth;
+
+    return b64_md5(s);
+}
+
+var d = new Date();
+var t = d.getTime();
+var thou = t %10000;
+
+var uID = uniqueMD5();
+
+document.getElementById("uniqueID").innerHTML = uID.substring(0,12)+thou+", "+t;
+
+//put somewhere that it will be sent to results - make a question or part of a form?
+ </script> 

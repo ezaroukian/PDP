@@ -1,0 +1,55 @@
+ographSimple,ontograph,block,complexity,truth,NL,CE,ident,and,neg,inan
+2Bl,C:/Users/erin.g.zaroukian.ctr/Desktop/ibex-0.3.6-PDP/images2Bl.png,1,simple,0,Sue is a traveler.,there is a traveler named Sue.,1,,,
+2Bl,C:/Users/erin.g.zaroukian.ctr/Desktop/ibex-0.3.6-PDP/images2Bl.png,1,simple,1,Tom is an officer.,there is an officer named Tom.,1,,,
+3Cl,C:/Users/erin.g.zaroukian.ctr/Desktop/ibex-0.3.6-PDP/images3Cl.png,1,simple,1,Bill is a traveler.,there is a traveler named Bill.,1,,,
+2Al,C:/Users/erin.g.zaroukian.ctr/Desktop/ibex-0.3.6-PDP/images2Al.png,1,complex,0,John sees Lisa and John buys a present.,the person John sees the person Lisa and buys the present pres2.,,1,,1
+3Cl,C:/Users/erin.g.zaroukian.ctr/Desktop/ibex-0.3.6-PDP/images3Cl.png,1,complex,0,Mary admires a present and helps Kate.,the person Mary admires the present p1 and the person Mary helps the person Kate.,,1,,1
+2Bl,C:/Users/erin.g.zaroukian.ctr/Desktop/ibex-0.3.6-PDP/images2Bl.png,1,complex,1,Paul admires an aquarium and inspects a letter.,the person Paul admires the aquarium a1 and inspects the letter a2.,,1,,1
+2Bl,C:/Users/erin.g.zaroukian.ctr/Desktop/ibex-0.3.6-PDP/images2Bl.png,1,complex,0,Sue and Lisa admire Paul.,the person Sue admires the person Paul and the person Lisa admires the person Paul.,,1,,
+3Al,C:/Users/erin.g.zaroukian.ctr/Desktop/ibex-0.3.6-PDP/images3Al.png,1,complex,1,Sue loves Tom and Tom loves Lisa.,the person Sue loves the person Tom and the person Tom loves the person Lisa.,,1,,
+3Cl,C:/Users/erin.g.zaroukian.ctr/Desktop/ibex-0.3.6-PDP/images3Cl.png,1,complex,1,Tom helps Kate and Mary admires Kate.,the person Tom helps the person Kate and the person Mary admires the person Kate.,,1,,
+3Al,C:/Users/erin.g.zaroukian.ctr/Desktop/ibex-0.3.6-PDP/images3Al.png,1,complex,0,Tom doesn't see an aquarium.,it is false that the person Tom sees the aquarium a1.,,,1,1
+2Al,C:/Users/erin.g.zaroukian.ctr/Desktop/ibex-0.3.6-PDP/images2Al.png,1,complex,1,Tom doesn't buy a present.,it is false that the person Tom buy the present pres1.,,,1,1
+2Bl,C:/Users/erin.g.zaroukian.ctr/Desktop/ibex-0.3.6-PDP/images2Bl.png,1,complex,1,Lisa doesn't inspect an aquarium,it is false that the person Lisa inspects the aquarium a2.,,,1,1
+2Bl,C:/Users/erin.g.zaroukian.ctr/Desktop/ibex-0.3.6-PDP/images2Bl.png,1,complex,0,Lisa doesn't admire Tom.,it is false that the person Lisa admires the person Tom.,,,1,
+3Cl,C:/Users/erin.g.zaroukian.ctr/Desktop/ibex-0.3.6-PDP/images3Cl.png,1,complex,0,Kate doesn't admire Bill.,it is false that the person Kate admires the person Bill.,,,1,
+3Cl,C:/Users/erin.g.zaroukian.ctr/Desktop/ibex-0.3.6-PDP/images3Cl.png,1,complex,1,Bill doesn't admire Mary.,it is false that the person Bill admires the person Mary.,,,1,
+3Al,C:/Users/erin.g.zaroukian.ctr/Desktop/ibex-0.3.6-PDP/images3Al.png,1,simple,0,Lisa loves a present.,the person Lisa loves the present p3.,,,,1
+3Cl,C:/Users/erin.g.zaroukian.ctr/Desktop/ibex-0.3.6-PDP/images3Cl.png,1,simple,0,Tom sees a TV.,the person Tom sees the tv t1.,,,,1
+3Al,C:/Users/erin.g.zaroukian.ctr/Desktop/ibex-0.3.6-PDP/images3Al.png,1,simple,1,Tom buys a present. ,the person Tom buys the present p1.,,,,1
+2Al,C:/Users/erin.g.zaroukian.ctr/Desktop/ibex-0.3.6-PDP/images2Al.png,1,simple,0,Mary sees Lisa.,the person Mary sees the person Lisa.,,,,
+2Bl,C:/Users/erin.g.zaroukian.ctr/Desktop/ibex-0.3.6-PDP/images2Bl.png,1,simple,0,Tom admires Lisa.,the person Tom admires the person Lisa.,,,,
+3Cl,C:/Users/erin.g.zaroukian.ctr/Desktop/ibex-0.3.6-PDP/images3Cl.png,1,simple,0,Kate helps Bill. ,the person Kate helps the person Bill.,,,,
+2Al,C:/Users/erin.g.zaroukian.ctr/Desktop/ibex-0.3.6-PDP/images2Al.png,1,simple,1,Tom sees John.,the person Tom sees the person John.,,,,
+2Bl,C:/Users/erin.g.zaroukian.ctr/Desktop/ibex-0.3.6-PDP/images2Bl.png,1,simple,1,Lisa inspects Paul.,the person Lisa inspects the person Paul.,,,,
+3Cl,C:/Users/erin.g.zaroukian.ctr/Desktop/ibex-0.3.6-PDP/images3Cl.png,1,simple,1,Mary helps Tom.,the person Mary helps the person Tom.,,,,
+2Cl,C:/Users/erin.g.zaroukian.ctr/Desktop/ibex-0.3.6-PDP/images2Cl.png,2,simple,0,Bill is an officer.,there is a officer named Bill.,1,,,
+3Al,C:/Users/erin.g.zaroukian.ctr/Desktop/ibex-0.3.6-PDP/images3Al.png,2,simple,0,Sue is an officer.,there is a officer named Sue.,1,,,
+3Bl,C:/Users/erin.g.zaroukian.ctr/Desktop/ibex-0.3.6-PDP/images3Bl.png,2,simple,1,Lisa is a golfer.,there is a golfer named Lisa.,1,,,
+3Bl,C:/Users/erin.g.zaroukian.ctr/Desktop/ibex-0.3.6-PDP/images3Bl.png,2,complex,0,Paul sees Lisa and Lisa inspects a letter.,the person Pauls sees the person Lisa and the person Lisa inspects the letter l1.,,1,,1
+2Cl,C:/Users/erin.g.zaroukian.ctr/Desktop/ibex-0.3.6-PDP/images2Cl.png,2,complex,1,Kate loves John and sees an acquarium.,the person Kate loves the person John and sees the acquarium a1.,,1,,1
+3Bl,C:/Users/erin.g.zaroukian.ctr/Desktop/ibex-0.3.6-PDP/images3Bl.png,2,complex,1,Lisa helps John and sees a picture.,the person Lisa helps the person John and sees the picture p2.,,1,,1
+2Cl,C:/Users/erin.g.zaroukian.ctr/Desktop/ibex-0.3.6-PDP/images2Cl.png,2,complex,0,Mary loves Kate and John.,the person Mary loves the person Kate and the person John.,,1,,
+3Al,C:/Users/erin.g.zaroukian.ctr/Desktop/ibex-0.3.6-PDP/images3Al.png,2,complex,0,Tom and Bill love Sue.,the person Tom loves the person Sue and the person Bill loves the person Sue.,,1,,
+2Al,C:/Users/erin.g.zaroukian.ctr/Desktop/ibex-0.3.6-PDP/images2Al.png,2,complex,1,Lisa and Mary see Tom.,the person Lisa sees the person Tom and the person Mary see the person Tom.,,1,,
+3Bl,C:/Users/erin.g.zaroukian.ctr/Desktop/ibex-0.3.6-PDP/images3Bl.png,2,complex,0,John doesn't inspect a picture.,it is false that the person John inspects the picture p1.,,,1,1
+2Cl,C:/Users/erin.g.zaroukian.ctr/Desktop/ibex-0.3.6-PDP/images2Cl.png,2,complex,0,Bill doesn't love a TV.,it is false that the person Bill loves the TV t2.,,,1,1
+2Cl,C:/Users/erin.g.zaroukian.ctr/Desktop/ibex-0.3.6-PDP/images2Cl.png,2,complex,1,John doesn't love a TV.,it is false that the person John loves the TV t2.,,,1,1
+2Al,C:/Users/erin.g.zaroukian.ctr/Desktop/ibex-0.3.6-PDP/images2Al.png,2,complex,0,John doesn't see Mary.,it is false that the person John sees the person Mary.,,,1,
+3Al,C:/Users/erin.g.zaroukian.ctr/Desktop/ibex-0.3.6-PDP/images3Al.png,2,complex,1,Sue doesn't see Bill.,it is false that the person Sue sees the person Bill.,,,1,
+3Bl,C:/Users/erin.g.zaroukian.ctr/Desktop/ibex-0.3.6-PDP/images3Bl.png,2,complex,1,Paul doesn't help John.,it is false that the person Paul helps the person John.,,,1,
+2Al,C:/Users/erin.g.zaroukian.ctr/Desktop/ibex-0.3.6-PDP/images2Al.png,2,simple,0,John buys a picture.,the person John buys the picture pic2.,,,,1
+2Al,C:/Users/erin.g.zaroukian.ctr/Desktop/ibex-0.3.6-PDP/images2Al.png,2,simple,1,Mary buys a present.,the person Mary buys the present pres1.,,,,1
+2Cl,C:/Users/erin.g.zaroukian.ctr/Desktop/ibex-0.3.6-PDP/images2Cl.png,2,simple,1,Mary sees a TV.,the person Mary sees the tv t1.,,,,1
+2Cl,C:/Users/erin.g.zaroukian.ctr/Desktop/ibex-0.3.6-PDP/images2Cl.png,2,simple,0,Kate loves John.,the person Kate loves the person John.,,,,
+3Bl,C:/Users/erin.g.zaroukian.ctr/Desktop/ibex-0.3.6-PDP/images3Bl.png,2,simple,0,Paul helps Lisa.,the person Paul helps the person Lisa.,,,,
+3Bl,C:/Users/erin.g.zaroukian.ctr/Desktop/ibex-0.3.6-PDP/images3Bl.png,2,simple,0,Lisa inspects a letter.,the person Lisa inspects the letter l1.,,,,
+2Cl,C:/Users/erin.g.zaroukian.ctr/Desktop/ibex-0.3.6-PDP/images2Cl.png,2,simple,1,Kate sees John.,the person Kate sees the person John. ,,,,
+3Al,C:/Users/erin.g.zaroukian.ctr/Desktop/ibex-0.3.6-PDP/images3Al.png,2,simple,1,Bill sees Sue.,the person Bill sees the person Sue.,,,,
+3Bl,C:/Users/erin.g.zaroukian.ctr/Desktop/ibex-0.3.6-PDP/images3Bl.png,2,simple,1,Paul inspects John.,the person Paul inspects the person John.,,,,
+0Al,C:/Users/erin.g.zaroukian.ctr/Desktop/ibex-0.3.6-PDP/images0Al.png,0,simple,0,Sue is a golfer.,there is a golfer named Sue.,1,,,
+0Al,C:/Users/erin.g.zaroukian.ctr/Desktop/ibex-0.3.6-PDP/images0Al.png,0,simple,1,Bill is a golfer.,there is a golfer named Bill.,1,,,
+0Bl,C:/Users/erin.g.zaroukian.ctr/Desktop/ibex-0.3.6-PDP/images0Bl.png,0,simple,0,Sue sees Bill.,the person Sue sees the person Bill.,,,,
+0Bl,C:/Users/erin.g.zaroukian.ctr/Desktop/ibex-0.3.6-PDP/images0Bl.png,0,simple,1,Bill sees Sue.,the person Bill sees the person Sue.,,,,
+0Cl,C:/Users/erin.g.zaroukian.ctr/Desktop/ibex-0.3.6-PDP/images0Cl.png,0,simple,0,Sue sees a present.,the person Sue sees the present p1.,,,,1
+0Cl,C:/Users/erin.g.zaroukian.ctr/Desktop/ibex-0.3.6-PDP/images0Cl.png,0,simple,1,Bill sees a present.,the person Bill sees the present p1.,,,,1

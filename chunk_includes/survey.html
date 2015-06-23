@@ -1,0 +1,178 @@
+<script type="text/javascript">
+// based on 'formval'
+
+var nbsp = 160;     // non-breaking space char
+var node_text = 3;  // DOM text node-type
+var emptyString = /^\s*$/ ;
+
+function msg(fld,     // id of element to display message in
+             msgtype, // class to give element ("warn" or "error")
+             message) // string to display
+{
+  // setting an empty string can give problems if later set to a 
+  // non-empty string, so ensure a space present. (For Mozilla and Opera one could 
+  // simply use a space, but IE demands something more, like a non-breaking space.)
+  var dispmessage;
+  if (emptyString.test(message)) 
+    dispmessage = String.fromCharCode(nbsp);    
+  else  
+    dispmessage = message;
+
+  var elem = document.getElementById(fld);
+  elem.firstChild.nodeValue = dispmessage;  
+  
+  elem.className = msgtype;   // set the CSS class to adjust appearance of message
+}
+
+
+function validateRadio(valfield, infofield)
+{
+  ele = document.getElementsByName(valfield.name);
+  var i = ele.length;
+  if (checkRadio(valfield.name))
+  {
+    msg(infofield, "warn", "");
+  } else {
+    msg(infofield, "warn", "  [required]");
+  }
+}
+
+function checkRadio(ele_name) 
+{
+  var ele = document.getElementsByName(ele_name);
+  for (var i=0; i < ele.length; i++) 
+  {
+    if (ele[i].checked) 
+    {
+      return true;
+    }
+  }
+  return false;
+}
+ 
+function yesRadio(ele_name)
+{
+  var ele = document.getElementsByName(ele_name);
+  for (var i=0; i < ele.length; i++)
+  {
+    if (ele[i].checked)
+    {
+      return ele[i].value!="1";
+    }
+  }
+  return false;
+}
+
+function validateRequiredCheck(valfield, infofield)
+{
+    if (valfield.checked)
+    {
+        msg(infofield, "warn", "");
+    } else {
+        msg(infofield, "warn", "  [required]");
+    }
+}
+
+</script>
+
+<!--
+<h2>TITLE</h2>
+
+<p>Some reference to IRB exemption.</p>
+<table cellspacing="4" cellpadding="0" border="0">
+    <tbody>
+ 
+        <tr>
+            <td>I agree:</td>
+            <td valign="center" id="cell_agree"><input type="checkbox" id="agree_check" name="agree_check" onchange="validateRequiredCheck(this, 'inf_agree_check');" /><span class="answertext">Yes</span></td><td id="inf_agree_check" style="color: red;">&nbsp;</td>
+        </tr>
+    </tbody>
+</table>
+
+<p>&nbsp;</p>
+<h3>Are you a native speaker of English?</h3>
+<p>Are you a native speaker of English?  A native speaker of US English is someone who meets both of the following criteria:</p>
+<table cellspacing="6" cellpadding="0" border="0">
+    <tbody>
+        <tr>
+            <td valign="center"><input type="radio" value="1" name="native1" onchange="validateRadio(this, 'inf_native1');" /><span class="answertext">Yes</span><input type="radio" value="0" name="native1" onchange="validateRadio(this, 'inf_native1');" /><span class="answertext">No</span></td>
+            <td>&nbsp;1. You lived in the United States from birth until (at least) age 13.</td><td id="inf_native1" style="color: red;">&nbsp;</td>
+        </tr>
+        <tr>
+            <td valign="center"><input type="radio" value="1" name="native2" onchange="validateRadio(this, 'inf_native2');" /><span class="answertext">Yes</span><input type="radio" value="0" name="native2" onchange="validateRadio(this, 'inf_native2');" /><span class="answertext">No</span></td>
+            <td>&nbsp;2. Your parents spoke English to you during those years</td><td id="inf_native2" style="color: red;">&nbsp;</td>
+        </tr>
+    </tbody>
+</table>
+<p>&nbsp;</p>-->
+<h3>Basic Information about you</h3>
+<p>We would like to know some basic information about you. You are not required to answer these questions, but it will help our study if you do.</p>
+<ol>
+  <li>
+    <p>What is your gender?<br/>
+	<input type="radio" value="1" name="gender" /><span class="answertext">Female<br/>
+	<input type="radio" value="0" name="gender" /><span class="answertext">Male</span></span></p>
+  </li>
+  <li>
+    <p>What is your age? <input type="text" name="Age" id="age" size="20" /></p>
+  </li>
+
+  <li>
+    <p>
+      How much knowledge do you have of logic and/or programming? (e.g., coursework or practical experience) <br/>
+      <input type="radio" value="1" name="logic" onchange="chkFrm()"/>No Knowledge<br/>
+      <input type="radio" value="2" name="logic" onchange="chkFrm()"/>A Little Knowledge<br/>
+	  <input type="radio" value="3" name="logic" onchange="chkFrm()"/>Some Knowledge<br/>
+	  <input type="radio" value="4" name="logic" onchange="chkFrm()"/>A Lot of Knowledge<br/>
+	  <input type="radio" value="5" name="logic" onchange="chkFrm()"/>Expert Knowledge
+    </p>
+    
+    <table cellspacing="6" cellpadding="0" border="0">
+      <tbody>
+        <tr>
+          <td valign="center">
+            <div id="hiddenBox" style="visibility:hidden">
+              Please describe your experience: <br><textarea name="logicBackground" cols='50' rows='5'></textarea>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+</ol>
+
+<div id="preload" style="width:1px; height:1px; visibility:hidden; overflow:hidden">
+<img src=ont0Al/>
+<img src=ont0Bl/>
+<img src=ont0Cl/>
+<img src=ont2Al/>
+<img src=ont2Bl/>
+<img src=ont2Cl/>
+<img src=ont3Al/>
+<img src=ont3Bl/>
+<img src=ont3Cl/>
+</div>
+  
+<script>
+function setup()
+{
+    //validateRadio(document.getElementsByName('agree')[0], 'inf_agree');
+    //validateRadio(document.getElementsByName('native1')[0], 'inf_native1');
+    //validateRadio(document.getElementsByName('native2')[0], 'inf_native2');
+    //validateRequiredCheck(document.getElementById('agree_check'), 'inf_agree_check');
+}
+  
+function chkFrm()
+{
+  if (yesRadio("logic"))
+  {
+    document.getElementById("hiddenBox").style.visibility = "visible";
+  }
+  else
+  {
+    document.getElementById("hiddenBox").style.visibility = "hidden";
+  }
+}
+
+window.onload = setup();
+</script>
