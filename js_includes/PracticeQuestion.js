@@ -14,6 +14,6 @@ define_ibex_controller({
     },
     properties: {
 		countsForProgressBar: false,
-		hideProgressBar: false,
+		hideProgressBar: true,
 	}
 });

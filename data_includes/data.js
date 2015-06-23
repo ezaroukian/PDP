@@ -60,7 +60,7 @@ var items = [
 	}],
 	["confPractice", "AcceptabilityJudgment", {
 		countsForProgressBar: false,
-		hideProgressBar: false,
+		hideProgressBar: true,
 		s: "",
 		q: "How confident are you in the response you just gave?",
 		leftComment: "not confident at all?", rightComment: "very confident?",
@@ -73,7 +73,7 @@ var items = [
 		normalMessage: "<p style='text-align:center; font-weight:bold; color:green;'>Correct!</p><p style='text-align:center; font-style: italic;'>Remember to respond to the diagrams as quickly and as accurately as possible. <p/> <p style='text-align:center; font-style: italic;'>Press any key to continue.</p>",
 		errorMessage: "<p style='text-align:center; font-weight:bold; color:red;'>Incorrect!</p><p style='text-align:center; font-style: italic;'>Remember to respond to the diagrams as quickly and as accurately as possible. <p/> <p style='text-align:center; font-style: italic;'>Press any key to continue.</p>",
 		countsForProgressBar: false,
-		hideProgressBar: false
+		hideProgressBar: true
 	}],
 
 ];
