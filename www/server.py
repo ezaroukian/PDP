@@ -77,6 +77,8 @@ def generate_html(setcounter=None, overview=False):
     <script type="text/javascript" src="shuffle.js"></script>
     <!-- JSON serialization code. -->
     <script type="text/javascript" src="json.js"></script>
+    <!-- Sound manager. -->
+    <script type="text/javascript" src="soundmanager2-jsmin.js"></script>
     <!-- Backwards compatability cruft to ensure that old JS data files work. -->
     <script type="text/javascript" src="backcompatcruft.js"></script>
     <!-- JS includes. -->
@@ -122,7 +124,7 @@ try:
 except getopt.GetoptError:
     sys.stderr.write("Bad arguments\n")
     sys.exit(1)
-             
+
 if __name__ == "__main__":
     gh = [x for x in command_line_options if x[0] == '--genhtml']
     gh.reverse()
@@ -167,7 +169,9 @@ except ImportError:
     def dtj(d):
         out = StringIO()
         out.write("{")
-        for k, v in d.iteritems():
+        its = d.items()
+        count = 0
+        for k, v in its:
             if not isinstance(v, basestring):
                 raise TypeError("dict_to_json cannot handle non-string key values")
             out.write('"')
@@ -177,6 +181,9 @@ except ImportError:
             for c in v:
                 out.write("\\u%04x" % ord(c))
             out.write('"')
+            if count < len(its) - 1:
+                out.write(',')
+            count += 1
         out.write("}")
         return out.getvalue()
     dict_to_json = dtj
@@ -466,7 +473,7 @@ class Scanner(object):
                     match = self.scanner.scanner(string, matchend).match
                 yield rval, matchend
             lastend = matchend
-            
+
 def pattern(pattern, flags=FLAGS):
     def decorator(fn):
         fn.pattern = pattern
@@ -625,7 +632,7 @@ def JSONObject(match, context, _w=WHITESPACE.match):
         pairs = object_hook(pairs)
     return pairs, end
 pattern(r'{')(JSONObject)
-            
+
 def JSONArray(match, context, _w=WHITESPACE.match):
     values = []
     s = match.string
@@ -651,7 +658,7 @@ def JSONArray(match, context, _w=WHITESPACE.match):
         end = _w(s, end).end()
     return values, end
 pattern(r'\[')(JSONArray)
- 
+
 ANYTHING = [
     JSONObject,
     JSONArray,
@@ -667,7 +674,7 @@ class JSONDecoder(object):
     Simple JSON <http://json.org> decoder
 
     Performs the following translations in decoding:
-    
+
     +---------------+-------------------+
     | JSON          | Python            |
     +===============+===================+
@@ -700,7 +707,7 @@ class JSONDecoder(object):
         ``encoding`` determines the encoding used to interpret any ``str``
         objects decoded by this instance (utf-8 by default).  It has no
         effect when decoding ``unicode`` objects.
-        
+
         Note that currently only encodings that are a superset of ASCII work,
         strings of other encodings should be passed in as ``unicode``.
 
@@ -931,7 +938,7 @@ def css_spit_out(css_definitions, ofile):
 #css_add_namespace(defs, "ns-")
 #css_spit_out(defs, sys.stdout)
 #sys.exit(0)
-            
+
 
 #
 # Logging and configuration variables.
@@ -1238,7 +1245,7 @@ def rearrange(parsed_json, thetime, ip, user_agent):
                 new_results.append([int(round(thetime)), uid_hexdigest] + map(lambda x: x[1], line))
                 column_names.append([main_index + i, [map(lambda x: getname(x[0]), line)]])
             break
-     
+
     return random_counter, counter, new_results, column_names, should_update_counter
 
 def ensure_period(s):
@@ -1566,23 +1573,56 @@ def control(env, start_response):
         # Is it a request for a JSON dict of all chunks? This should maybe be cached at some point.
         if qs_hash.has_key('allchunks'):
             jsondict = { }
+            f = None
             try:
                 for fname in os.listdir(os.path.join(PWD, CFG['CHUNK_INCLUDES_DIR'])):
+                    if fname.endswith(".wav") or fname.endswith(".mp3") or fname.endswith("m4a"):
+                        continue
                     f = None
                     try:
-                        f = open(os.path.join(PWD, CFG['CHUNK_INCLUDES_DIR'], fname))
-                        jsondict[fname] = f.read()
-                    except IOError, e:
-                        if e.errno == errno.EISDOR:
-                            pass
-                        else:
-                            start_response('500 Internal Server Error', [('Content-Type', 'text/html; charset=UTF-8')])
-                            return ["<html><body><h1>500 Internal Server Error</h1></body></html>"]
+                        try:
+                            f = open(os.path.join(PWD, CFG['CHUNK_INCLUDES_DIR'], fname))
+                            jsondict[fname] = f.read()
+                        except IOError, e:
+                            if e.errno == errno.EISDIR:
+                                pass
+                            else:
+                                start_response('500 Internal Server Error', [('Content-Type', 'text/html; charset=UTF-8')])
+                                return ["<html><body><h1>500 Internal Server Error</h1></body></html>"]
+                    finally:
+                        if f: f.close()
             except IOError, e:
                 start_response('500 Internal Server Error', [('Content-Type', 'text/html; charset=UTF-8')])
                 return ["<html><body><h1>500 Internal Server Error</h1></body></html>"]
+
             start_response('200 OK', [('Content-Type', 'text/plain; charset=UTF-8')]) # Still trying to support IE 6 LOL
             return [dict_to_json(jsondict)]
+
+        # or a resource?
+        if qs_hash.has_key('resource'):
+            f = None
+            try:
+                p = os.path.join(PWD, CFG['CHUNK_INCLUDES_DIR'], qs_hash['resource'][0])
+                stats = os.stat(p)
+                # Don't allow files bigger than 10MB to be downloaded.
+                if stats.st_size > 10 * 1024 * 1024:
+                    start_response('500 Internal Server Error' [('Content-Type', 'text/html; charset=UTF-8')])
+                    return ["<html><body><h1>500 Internal Server Error</h1></body></html>"]
+                f = open(p, 'rb')
+                def it():
+                    block = None
+                    while block is None or len(block) > 0:
+                        block = f.read(2048)
+                        if len(block) == 0:
+                            f.close()
+                            raise StopIteration
+                        yield block
+
+                start_response('200 OK', [('Content-Type', 'audio/mpeg'), ('Content-Length', stats.st_size)])
+                return it()
+            except IOError, e:
+                start_response('500 Internal Server Error' [('Content-Type', 'text/html; charset=UTF-8')])
+                return ["<html><body><h1>500 Internal Server Error</h1></body></html>"]
 
         if qs_hash.has_key('withsquare'):
             ivalue = None
@@ -1713,7 +1753,9 @@ if CFG['SERVER_MODE'] != "cgi":
             'jquery.min.js',
             'jquery-ui.min.js',
             'PluginDetect.js',
-            'jsDump.js'
+            'jsDump.js',
+            'soundmanager2-jsmin.js',
+            'soundmanager2_debug.swf'
         ]
 
         def __init__(self, request, client_address, server):
@@ -1721,7 +1763,8 @@ if CFG['SERVER_MODE'] != "cgi":
                 '' : "application/octet-stream",
                 ".html" : "text/html; charset=UTF-8",
                 ".css"  : "text/css",
-                ".js"   : "text/javascript"
+                ".js"   : "text/javascript",
+                ".swf"  : "application/x-shockwave-flash"
             }
 
             SimpleHTTPServer.SimpleHTTPRequestHandler.__init__(self, request, client_address, server)

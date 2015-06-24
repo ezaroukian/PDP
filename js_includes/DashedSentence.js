@@ -13,7 +13,7 @@ jqueryWidget: {
 
         if (typeof(this.options.s) == "string") {
             // replace all linebreaks (and surrounding space) with 'space-return-space'
-            var inputString = this.options.s.replace(/\s*[\r\n]\s*/, " \r ");
+            var inputString = this.options.s.replace(/\s*[\r\n]\s*/g, " \r ");
             this.words = inputString.split(/[ \t]+/);
         } else {
             assert_is_arraylike(this.options.s, "Bad value for 's' option of DashedSentence.");
@@ -126,7 +126,7 @@ jqueryWidget: {
                                             .addClass(this.cssPrefix + 'ispan')
                                             .text(this.words[j]));
                 if (! this.showAhead)
-                    span.css('border-color', this.background);
+                    ospan.css('border-color', this.background);
                 this.mainDiv.append(ospan);
                 if (j + 1 < this.words.length)
                     this.mainDiv.append("&nbsp; ");

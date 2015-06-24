@@ -9,7 +9,7 @@ var defaults = [
     normalMessage: "Please wait for the next statement.",
     errorMessage: "Wrong. Please wait for the next statement."
   },
-  "AcceptabilityJudgment", {
+  "AcceptabilityJudgment", {countsForProgressBar: false,
     as: ["1", "2", "3", "4", "5", "6", "7"],
     presentAsScale: true,
     instructions: "Use number keys or click boxes to answer.",
@@ -27,6 +27,8 @@ var defaults = [
     randomOrder: false,
 	presentHorizontally: true,
 	autoFirstChar: true,
+	countsForProgressBar: false,
+	hideProgressBar: true,
   }, 
   "Message", {
     hideProgressBar: true

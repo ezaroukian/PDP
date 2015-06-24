@@ -26,10 +26,10 @@ ographSimple,ontograph,block,complexity,truth,NL,CE,ident,and,neg,inan
 2Cl,C:/Users/erin.g.zaroukian.ctr/Desktop/ibex-0.3.6-PDP/images2Cl.png,2,simple,0,Bill is an officer.,there is a officer named Bill.,1,,,
 3Al,C:/Users/erin.g.zaroukian.ctr/Desktop/ibex-0.3.6-PDP/images3Al.png,2,simple,0,Sue is an officer.,there is a officer named Sue.,1,,,
 3Bl,C:/Users/erin.g.zaroukian.ctr/Desktop/ibex-0.3.6-PDP/images3Bl.png,2,simple,1,Lisa is a golfer.,there is a golfer named Lisa.,1,,,
-3Bl,C:/Users/erin.g.zaroukian.ctr/Desktop/ibex-0.3.6-PDP/images3Bl.png,2,complex,0,Paul sees Lisa and Lisa inspects a letter.,the person Pauls sees the person Lisa and the person Lisa inspects the letter l1.,,1,,1
-2Cl,C:/Users/erin.g.zaroukian.ctr/Desktop/ibex-0.3.6-PDP/images2Cl.png,2,complex,1,Kate loves John and sees an acquarium.,the person Kate loves the person John and sees the acquarium a1.,,1,,1
+3Bl,C:/Users/erin.g.zaroukian.ctr/Desktop/ibex-0.3.6-PDP/images3Bl.png,2,complex,0,Paul sees Lisa and Lisa inspects a letter.,the person Paul sees the person Lisa and the person Lisa inspects the letter l1.,,1,,1
+2Cl,C:/Users/erin.g.zaroukian.ctr/Desktop/ibex-0.3.6-PDP/images2Cl.png,2,complex,1,Kate loves John and sees an aquarium.,the person Kate loves the person John and sees the aquarium a1.,,1,,1
 3Bl,C:/Users/erin.g.zaroukian.ctr/Desktop/ibex-0.3.6-PDP/images3Bl.png,2,complex,1,Lisa helps John and sees a picture.,the person Lisa helps the person John and sees the picture p2.,,1,,1
-2Cl,C:/Users/erin.g.zaroukian.ctr/Desktop/ibex-0.3.6-PDP/images2Cl.png,2,complex,0,Mary loves Kate and John.,the person Mary loves the person Kate and the person John.,,1,,
+2Cl,C:/Users/erin.g.zaroukian.ctr/Desktop/ibex-0.3.6-PDP/images2Cl.png,2,complex,0,Mary loves Kate and John.,the person Mary loves the person Kate and loves the person John.,,1,,
 3Al,C:/Users/erin.g.zaroukian.ctr/Desktop/ibex-0.3.6-PDP/images3Al.png,2,complex,0,Tom and Bill love Sue.,the person Tom loves the person Sue and the person Bill loves the person Sue.,,1,,
 2Al,C:/Users/erin.g.zaroukian.ctr/Desktop/ibex-0.3.6-PDP/images2Al.png,2,complex,1,Lisa and Mary see Tom.,the person Lisa sees the person Tom and the person Mary see the person Tom.,,1,,
 3Bl,C:/Users/erin.g.zaroukian.ctr/Desktop/ibex-0.3.6-PDP/images3Bl.png,2,complex,0,John doesn't inspect a picture.,it is false that the person John inspects the picture p1.,,,1,1

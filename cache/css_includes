@@ -43,6 +43,11 @@
 }
 
 
+.FlashSentence-loading {
+    font-style: italic;
+}
+
+
 .Form-error-text {
     color: red;
     font-weight: bold;
@@ -119,6 +124,49 @@ span:hover.Question-fake-link {
 }
 
 
+.Scale-html {
+    text-align: center;
+    margin-bottom: 2em;
+}
+.Scale-bar {
+    margin-top: 50px;
+    width: 300px;
+    height: 20px;
+    
+    
+}
+.Scale-handle  , .Scale-handle-label  , .Scale-scale-label {
+    font-family: sans-serif;
+    position: absolute;
+}
+.Scale-handle {
+    width: 30px;
+    height: 30px;
+    cursor: default;
+    font-face: bold;
+    border: 1px solid white;
+}
+.Scale-button {
+    width: 7em;
+    height: 1.5em;
+    background: #26396B;
+    color: white;
+    font-family: sans-serif;
+    font-weight: bold;
+    cursor: pointer;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 4em;
+    border-radius: 5px;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+    padding-top: 0.5em;
+    padding-bottom: 0.2em;
+    vertical-align: middle;
+    text-align: center;
+}
+
+
 .Separator-next-item-failure-message {
     color: red;
 }
@@ -173,7 +221,10 @@ span.retry:visited {
     color: blue;
 }
 
+
 span.q{
-	font-family: Arial, Sans-serif;
+	
+font-family: Arial, Sans-serif;
+
 }
 

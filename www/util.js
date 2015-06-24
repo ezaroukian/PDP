@@ -72,7 +72,7 @@ function jsHTML(html, namesHash) {
                html[i + 1][0].charAt(0) == "&" &&
                html[i + 1][0].charAt(html[i + 1][0].length - 1) == ";"))) {
             elem.appendChild(document.createTextNode(" "));
-        } 
+        }
     }
 
     return elem;
@@ -183,7 +183,7 @@ function custom_url_encode(s, specials) {
         slices.push(ins[1]);
         lastIndex = ins[0] + 1;
     }
-    
+
     var js = slices.join("");
     if (insertions.length > 0 && insertions[insertions.length-1][0] < s.length)
         js += s.slice(insertions[insertions.length-1][0] + 1, s.length);
@@ -653,3 +653,22 @@ function binl2b64(binarray)
   return str;
 }
 
+var withSoundManager;
+(function () {
+var sm;
+withSoundManager = function (callback) {
+    if (sm)
+        return callback(sm);
+    sm = soundManager.setup({
+        url: window.location.pathname.replace(/\/[^/]*$/, '/'),
+        flashVersion: 8,
+        onready: function () {
+            callback(sm);
+        },
+        onerror: function () {
+            alert("Error initializing sound");
+            throw "Error initializing sound";
+        }
+    });
+}
+})();
