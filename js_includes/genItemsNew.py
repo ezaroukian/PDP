@@ -57,7 +57,8 @@ with open('ontSent.csv', 'rb') as csvfile:
 ##                        ontLink = ont3Cl
                 #Locally I can just do
                 ontLink = row[0]+".png"
-                #ontLink = "file:///C:/Temp/PDP/www/"+row[0]+".png"
+                #online I do
+                ontLink = "http://ezaroukian.github.io/pdp/"+row[0]+".png"
                 image = '<br/><img src="'+ontLink+'" height="360">'
                 block = row[1]
                 complexity = row[2] 
