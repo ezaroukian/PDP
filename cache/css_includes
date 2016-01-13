@@ -55,7 +55,7 @@
 
 
 .Message-message {
-    font-size: medium;
+    
     width: 40em;
 }
 .Message-continue-link { text-decoration: none; color: blue; }

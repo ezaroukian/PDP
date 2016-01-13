@@ -1,7 +1,8 @@
 
-var manualSendResults = false;
-
-var shuffleSequence = mySeq;
+var manualSendResults = true;
+var order = Math.round(Math.random());
+//alert(order);
+var shuffleSequence = [mySeqNC,mySeqCN][order];
 
 var defaults = [
   "Separator", {
@@ -13,13 +14,14 @@ var defaults = [
     as: ["1", "2", "3", "4", "5", "6", "7"],
     presentAsScale: true,
     instructions: "Use number keys or click boxes to answer.",
-    leftComment: "(bad)", rightComment: "(good)"
+    leftComment: "(bad)", rightComment: "(good)",
+	countsForProgressBar: true
   },
   "Question", {
     as: ["yes","no"],
     randomOrder: false,
 	presentHorizontally: true,
-	autoFirstChar: true,
+	autoFirstChar: true
   },  
    "PracticeQuestion", {
     as: ["yes","no"],
@@ -28,15 +30,55 @@ var defaults = [
 	presentHorizontally: true,
 	autoFirstChar: true,
 	hideProgressBar: true,
+	countsForProgressBar: false
   }, 
   "Message", {
     hideProgressBar: true
   },
   "Form", {
     hideProgressBar: true,
-    continueOnReturn: true,
+    continueOnReturn: true
   }
+
 ];
+
+
+
+function uniqueMD5() {
+    // Time zone.
+    var s = "" + new Date().getTimezoneOffset() + ':';
+
+    // Plugins.
+    var plugins = [
+        "Java",
+        "QuickTime",
+        "DevalVR",
+        "Shockwave",
+        "Flash",
+        "Windows Media Player",
+        "Silverlight",
+        "VLC Player"
+    ];
+    for (var i = 0; i < plugins.length; ++i) {
+        var v = PluginDetect.getVersion(plugins[i]);
+        if (v) s += plugins[i] + ':' + v;
+    }
+
+    // Whether or not cookies are turned on.
+    createCookie("TEST", "TEST", 0.01); // Keep it for 0.01 days.
+    if (readCookie("TEST") == "TEST")
+        s += "C";
+
+    // Screen dimensions and color depth.
+    var width = screen.width ? screen.width : 1;
+    var height = screen.height ? screen.height : 1;
+    var colorDepth = screen.colorDepth ? screen.colorDepth : 1;
+    s += width + ':' + height + ':' + colorDepth;
+
+    return b64_md5(s);
+}
+
+
 
 var items = [
 	["intro","Form", {html: {include: "survey.html"}}
@@ -51,28 +93,38 @@ var items = [
 	],
 	["endSurvey","Form", {html: {include: "endSurvey.html"}}
 	],
-	["break","Message", {html: "<p>You are now halfway through the experiment.</p><p>Feel free to take a break</p>"}
+	["endSurvey", "__SendResults__", { }],
+	["endSurvey","Message", {html: { include: "code.html" }, 
+							transfer: null }
+	],
+	["break","Message", {html: "<p>You are now halfway through the experiment.</p><p>Feel free to take a break</p><p>The second half will the much like the first half, but the sentences you read will be in a different form.</p>"}
 	],
 	["conf", "AcceptabilityJudgment", {
 		s: "",
 		q: "How confident are you in the response you just gave?",
-		leftComment: "not confident at all?", rightComment: "very confident?"
+		leftComment: "not confident at all?", rightComment: "very confident?",
+		countsForProgressBar: true
 	}],
 	["confPractice", "AcceptabilityJudgment", {
 		hideProgressBar: true,
 		s: "",
 		q: "How confident are you in the response you just gave?",
-		leftComment: "not confident at all?", rightComment: "very confident?",
+		leftComment: "not confident at all?", rightComment: "very confident?"
 	}],
-	["sep", "SeparatorHTML", {
-		normalMessage: "<p style='text-align:center; font-style:italic;'>Remember to respond to the diagrams as <b>quickly</b> and as <b>accurately</b> as possible. <p/> <p style='text-align:center; font-style: italic;'>Press any key to continue.</p>",
-		ignoreFailure: true
+	["sep", "Message", {
+		html: "<p style='text-align:center; font-style:italic;'>Remember to respond to the diagrams as <b>quickly</b> and as <b>accurately</b> as possible. <p/>",
+		countsForProgressBar: false,
+		hideProgressBar: false
 	}],
-	["sepPractice", "SeparatorHTML", {
-		normalMessage: "<p style='text-align:center; font-weight:bold; color:green;'>Correct!</p><p style='text-align:center; font-style: italic;'>Remember to respond to the diagrams as quickly and as accurately as possible. <p/> <p style='text-align:center; font-style: italic;'>Press any key to continue.</p>",
-		errorMessage: "<p style='text-align:center; font-weight:bold; color:red;'>Incorrect!</p><p style='text-align:center; font-style: italic;'>Remember to respond to the diagrams as quickly and as accurately as possible. <p/> <p style='text-align:center; font-style: italic;'>Press any key to continue.</p>",
-		hideProgressBar: true
-	}],
+	["sepPractice", "ClickSeparator", {
+		html: "<p style='text-align:center; font-style: italic;'>Remember to respond to the diagrams as <b>quickly</b> and as <b>accurately</b> as possible. <p/>",
+		normalMessage: "<p style='text-align:center; font-weight:bold; color:green;'>Correct!</p>",
+		errorMessage: "<p style='text-align:center; font-weight:bold; color:red;'>Incorrect!</p> ",
+		hideProgressBar: true,
+		countsForProgressBar: false
+	}]
+	
+	
 
 ];
 

@@ -55,7 +55,6 @@ jqueryWidget: {
 },
 
 properties: {
-    countsForProgressBar: false,
     htmlDescription: function (opts) {
         return $(document.createElement("div")).text(opts.normalMessage)[0];
     }

@@ -1755,18 +1755,7 @@ if CFG['SERVER_MODE'] != "cgi":
             'PluginDetect.js',
             'jsDump.js',
             'soundmanager2-jsmin.js',
-            'soundmanager2_debug.swf',
-
-'0Al.png',
-'0Bl.png',
-'0Cl.png',
-'2Al.png',
-'2Bl.png',
-'2Cl.png',
-'3Al.png',
-'3Bl.png',
-'3Cl.png',
-'sees.png'
+            'soundmanager2_debug.swf'
         ]
 
         def __init__(self, request, client_address, server):

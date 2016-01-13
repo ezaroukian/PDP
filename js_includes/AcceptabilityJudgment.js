@@ -22,10 +22,10 @@ jqueryWidget: {
                                                  } :
                                                  {
                                                      s: this.options.s,
-                                                     timeout: null, // Already present for 'Question'
-                                                     audio: this.options.audio,
-                                                     audioMessage: this.options.audioMessage,
-                                                     audioTrigger: this.options.audioTrigger
+                                                     timeout: null//, // Already present for 'Question'
+                                                     //audio: this.options.audio,
+                                                     //audioMessage: this.options.audioMessage,
+                                                     //audioTrigger: this.options.audioTrigger
                                                  },
                           this.options._dashed ? "!Question" : (this.options.s.audio ? "*Question" : "Question"),
                           { q:                   this.options.q,
