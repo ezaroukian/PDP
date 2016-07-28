@@ -1,6 +1,7 @@
 #Take a cvs of stimuli, make a js file containing a list of items
-countdown = '<div id="clockdiv">seconds remaining: -</div>'+'<script> var timeInSeconds = 10; var currentTime = Date.parse(new Date()); var deadline = new Date(currentTime + timeInSeconds*1000); function getTimeRemaining(endtime){  var t = Date.parse(endtime) - Date.parse(new Date());  var seconds = Math.floor( (t/1000) % 60 );  return {    "total": t,    "seconds": seconds  };}</script>'+'<script> var timeinterval = setInterval(function(){    var t = getTimeRemaining(deadline);    document.getElementById("clockdiv").innerHTML = "seconds remaining: " + t.seconds;      },1000);</script>'
-#if(t.total<=0){      clearInterval(timeinterval);    }#put back in to stop timer at 0
+countdownP = '<div id="clockdiv">seconds remaining: -</div>'+'<script> var timeInSeconds = 10; var currentTime = Date.parse(new Date()); var deadline = new Date(currentTime + timeInSeconds*1000); function getTimeRemaining(endtime){  var t = Date.parse(endtime) - Date.parse(new Date());  var seconds = Math.floor( (t/1000) % 60 );  return {    "total": t,    "seconds": seconds  };}</script>'+'<script> var timeinterval = setInterval(function(){    var t = getTimeRemaining(deadline);    document.getElementById("clockdiv").innerHTML = "seconds remaining: " + t.seconds;      },1000);</script>'
+countdown = '<div id="clockdiv">seconds remaining: -</div>'+'<script> var timeInSeconds = 10; var currentTime = Date.parse(new Date()); var deadline = new Date(currentTime + timeInSeconds*1000); function getTimeRemaining(endtime){  var t = Date.parse(endtime) - Date.parse(new Date());  var seconds = Math.floor( (t/1000) % 60 );  return {    "total": t,    "seconds": seconds  };}</script>'+'<script> var timeinterval = setInterval(function(){    var t = getTimeRemaining(deadline);    document.getElementById("clockdiv").innerHTML = "seconds remaining: " + t.seconds;     if(t.total<=0){      clearInterval(timeinterval);    } },1000);</script>'
+##put back in to stop timer at 0
 import csv, string
 
 ont0A = "http://i1341.photobucket.com/albums/o753/ezaroukian/0A_zpslpinf2fi.png"
@@ -87,8 +88,8 @@ with open('ontSent.csv', 'rb') as csvfile:
                 itypeC = "CE" + itypeC
                 
                 if block == "0":#practice items
-                        itemN = [itypeN, "PracticeQuestion", {"q": countdown+'<br/><br/>'+'<span class="q">'+sentenceN+"</span>"+image, "hasCorrect": truth}  ]
-                        itemC = [itypeC, "PracticeQuestion", {"q": countdown+'<br/><br/>'+'<span class="q">'+sentenceC+"</span>"+image, "hasCorrect": truth}  ]
+                        itemN = [itypeN, "PracticeQuestion", {"q": countdownP+'<br/><br/>'+'<span class="q">'+sentenceN+"</span>"+image, "hasCorrect": truth}  ]
+                        itemC = [itypeC, "PracticeQuestion", {"q": countdownP+'<br/><br/>'+'<span class="q">'+sentenceC+"</span>"+image, "hasCorrect": truth}  ]
                 else:
                         itemN = [itypeN, "Question", {"q": countdown+'<br/><br/>'+'<span class="q">'+sentenceN+"</span>"+image, "hasCorrect": truth, "timeout": 11000 } ]
                         itemC = [itypeC, "Question", {"q": countdown+'<br/><br/>'+'<span class="q">'+sentenceC+"</span>"+image, "hasCorrect": truth, "timeout": 11000 } ]
