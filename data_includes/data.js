@@ -105,7 +105,7 @@ var items = [
 		}
 	],
 	["endSurvey", "__SendResults__", { }],
-	["endSurvey","Message", {html: { include: "code.html" }, 
+	["endSurvey","Message", {html: { '<center><h3>Thank you for your participation!</h3><p>This study was designed to assess how quickly and accurately human users respond to statements in plain English (e.g. "John sees a letter") versus a restricted computer-readable form of English (e.g. "The person John sees the letter l1"). Your responses will help us design computer-readable languages that can still be quickly and accurately understood by human users.</p><p>Your code is:</p>'+code.toString()+'<p>Be sure to enter this code on the Amazon Mechanical Turk site so that you can be rewarded for completing this HIT.</p></center>';}, 
 							transfer: null }
 	],
 
