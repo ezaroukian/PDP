@@ -2,8 +2,8 @@
 var manualSendResults = true;
 var order = Math.round(Math.random());
 //alert(order);
-var shuffleSequence = [mySeqNC,mySeqCN][order];
-//var shuffleSequence = seq("endSurvey");
+//var shuffleSequence = [mySeqNC,mySeqCN][order];
+var shuffleSequence = seq("endSurvey");
 
 var defaults = [
   "Separator", {
@@ -44,7 +44,7 @@ var defaults = [
 ];
 
 var code = Math.floor(Math.random()*1000000);
-var completionMessage ='<center><h3>Thank you for your\n participation!</h3><p>This study was designed to assess how quickly and accurately human users respond to statements in plain English (e.g. "John sees a letter") versus a restricted computer-readable form of English (e.g. "The person John sees the letter l1"). Your responses will help us design computer-readable languages that can still be quickly and accurately understood by human users.</p><p>Your code is:</p>'+code.toString()+'<p>Be sure to enter this code on the Amazon Mechanical Turk site so that you can be rewarded for completing this HIT.</p></center>';
+var completionMessage ='<center><h3>Thank you for your participation!</h3><p>This study was designed to assess how quickly and accurately human users respond to statements in plain English (e.g. "John sees a letter") versus a restricted computer-readable form of English (e.g. "The person John sees the letter l1"). Your responses will help us design computer-readable languages that can still be quickly and accurately understood by human users.</p><p>Your code is:</p>'+code.toString()+'<p>Be sure to enter this code on the Amazon Mechanical Turk site so that you can be rewarded for completing this HIT.</p></center>';
 var completionErrorMessage = "The transmission of the results failed!  Please contact erin.g.zaroukian.ctr@mail.mil with your participation code: " + code.toString(); 
 
 function uniqueMD5() {
@@ -105,9 +105,9 @@ var items = [
 		}
 	],
 	["endSurvey", "__SendResults__", { }],
-	//["endSurvey","Message", {html: { include: "code.html" }, 
-	//						transfer: null }
-	//],
+	["endSurvey","Message", {html: { include: "code.html" }, 
+							transfer: null }
+	],
 
 	["break","Message", {html: "<p>You are now halfway through the experiment.</p><p>Feel free to take a break.</p><p>The second half will the much like the first half, but the sentences you read will be in a different form.</p>"}
 	],
